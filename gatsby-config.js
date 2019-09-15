@@ -4,6 +4,7 @@ module.exports = {
     description: `Personal website of Tom Goralczyk`,
     author: `@goto135`,
   },
+  pathPrefix: `/`,
   plugins: [
     `gatsby-plugin-postcss`,
     {
