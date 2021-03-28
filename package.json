@@ -4,17 +4,49 @@
   "description": "This repository holds source-code for my personal website.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "del dist",
+    "dev:postcss": "NODE_ENV=development postcss src/_assets/stylesheets/*.css --dir src/static --watch --verbose",
+    "dev:11ty": "NODE_ENV=development eleventy --serve --watch",
+    "dev:babel": "NODE_ENV=development babel src/_assets/scripts --out-dir src/static --source-maps inline --watch",
+    "new:dev:esbuild": "node scripts/watch.js",
+    "build:postcss": "NODE_ENV=production postcss src/_assets/stylesheets/*css --dir src/_includes",
+    "build:11ty": "ELEVENTY_ENV=production eleventy",
+    "build:babel": "NODE_ENV=production babel src/_assets/scripts --out-dir src/static --source-maps inline",
+    "new:build:esbuild": "NODE_ENV=production esbuild src/**/*.js --outbase=src --bundle --outdir=src/static --target=es6",
+    "develop": "run-p dev:* --print-label",
+    "build": "run-s clean build:* --print-label",
+    "serve": "serve dist/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/goto1/website.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Tom Goralczyk",
   "bugs": {
     "url": "https://github.com/goto1/website/issues"
   },
-  "homepage": "https://github.com/goto1/website#readme"
+  "homepage": "https://github.com/goto1/website#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "@babel/cli": "^7.12.16",
+    "@babel/core": "^7.12.16",
+    "@babel/preset-env": "^7.12.16",
+    "autoprefixer": "^10.2.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-minify": "^0.5.1",
+    "del-cli": "^3.0.1",
+    "html-minifier": "^4.0.0",
+    "luxon": "^1.26.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.8",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.0",
+    "serve": "^11.3.2",
+    "tailwindcss": "^2.0.4"
+  },
+  "dependencies": {
+    "del": "^5.1.0",
+    "dotenv": "^8.2.0"
+  }
 }
