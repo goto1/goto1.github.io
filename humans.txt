@@ -1,0 +1,7 @@
+
+/* TEAM */ 
+	Name: Tom Goralczyk
+	Site: https://goto1.dev
+
+/* SITE */
+	Doctype: HTML5
