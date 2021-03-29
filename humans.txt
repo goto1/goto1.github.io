@@ -2,6 +2,7 @@
 /* TEAM */ 
 	Name: Tom Goralczyk
 	Site: https://goto1.dev
+	Twitter: @goto135
 
 /* SITE */
 	Doctype: HTML5
